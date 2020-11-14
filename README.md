@@ -112,6 +112,16 @@ fmt.Println(slc)
 
 ```
 
+* **map**  		- hashtable
+
+```golang
+users := make(map[string]User)
+
+users["kaja"] = User{"Karel", "Patočka", 42}
+users["vilda"] = User{"Viliem", "Novak", 34}
+``` 
+
+
 * **Own types and structures**
   golang allows to define own structures and types and is very strictly (it increases safety)
 
