@@ -21,7 +21,7 @@ go doc fmt.Println
 
 
 # code normalization is there implemented
-gofmt source_code.go
+gofmt source_code.go > public_this.go
 ```
 		
 
@@ -62,7 +62,7 @@ func main() {
 
 ```
 
-=== Strings
+* **string**   - array of unicode chars (allows all utf8 chars)
 
 
 ```golang
@@ -76,10 +76,79 @@ fmt.Println(string(x[3]))	// prints e
 ```
 
 
+* **array**  - the length and type must be defined during initialization
+
+```golang
+package main
+
+import "fmt"
+
+func main() {
+  var arr1 [7]string
+
+  arr1[0] = "go"
+  arr1[2] = "is"
+  arr1[4] = "the"
+  arr1[6] = "best"
+
+  for id, word := range arr1 {
+    fmt.Println(id, " - ", word)
+  }
+
+}
+```
+
+
+* **slice** 	- let's say more flexible array (more [informations](https://blog.golang.org/slices-intro))
+```golang
+slc := []string{
+	"go",
+	"is",
+	"the",
+	"best"}
+
+// Println is cool and can print whole array or slice
+fmt.Println(slc)
+
+```
+
+* **Own types and structures**
+  golang allows to define own structures and types and is very strictly (it increases safety)
+
+```golang
+package main
+
+// define new type
+type Datum string
+
+// define new struc
+type User struct {
+	Name    string
+	Surname string
+	Age     uint8
+}
+
+func main() {
+	// define date of type Datum
+	var date Datum = "2020-11-02"
+
+	// define slice of type User
+	var users []User
+
+	users = append(users, User{"Karel", "Patočka", 42})
+	users = append(users, User{"Vilda", "Novak", 34})
+	
+	fmt.Println(date)
+	fmt.Println(users)
+
+}
+
+```
+
 Basic program structure
 -----------------------
 
-
+This is example how the nice program could work
 
 ```golang
 package main
