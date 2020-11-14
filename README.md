@@ -119,6 +119,15 @@ users := make(map[string]User)
 
 users["kaja"] = User{"Karel", "Patočka", 42}
 users["vilda"] = User{"Viliem", "Novak", 34}
+
+
+value, exists := users["Paja"]
+if exists {
+	fmt.Println(value)
+} else {
+	fmt.Println("Given key is invalid")
+}
+
 ``` 
 
 
