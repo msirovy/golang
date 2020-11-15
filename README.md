@@ -137,14 +137,40 @@ if exists {
 ```golang
 package main
 
+import (
+	"fmt"
+)
+
 // define new type
 type Datum string
 
 // define new struc
 type User struct {
-	Name    string
-	Surname string
-	Age     uint8
+	Name     string
+	Surname  string
+	Password string
+	Age      uint8
+}
+
+/*
+	structs can have methods ;-)
+	- first brackets contains (self Struct) and than is definition common
+*/
+func (usr User) hi() {
+	fmt.Println("Hi ", usr.Name)
+}
+
+// if I need to change data in the struct I must use pointer!!!
+func (usr *User) chpwd(pass string) {
+  usr.Password = pass
+}
+
+func (usr User) auth(pass string) bool {
+	if usr.Password == pass {
+		return true
+	} else {
+		return false
+	}
 }
 
 func main() {
@@ -154,15 +180,21 @@ func main() {
 	// define slice of type User
 	var users []User
 
-	users = append(users, User{"Karel", "Patočka", 42})
-	users = append(users, User{"Vilda", "Novak", 34})
-	
+	users = append(users, User{"Karel", "Patočka", "PasswordK", 42})
+	users = append(users, User{"Vilda", "Novak", "PasswordV", 34})
+
 	fmt.Println(date)
-	fmt.Println(users)
+
+	for _, u := range users {
+		if u.auth("PasswordV") {
+			fmt.Println("Hi there ", u.Name)
+		}
+	}
 
 }
-
 ```
+
+
 
 Basic program structure
 -----------------------
