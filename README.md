@@ -1,6 +1,8 @@
 GOlang
 ======
 
+My journey...
+
 
 Good to know
 ------------
