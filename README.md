@@ -1,7 +1,15 @@
 GOlang
 ======
 
-My journey...
+My GOlang journey from zero to ...
+
+
+
+Tutorials
+---------
+
+ * [Learn GO with tests](https://quii.gitbook.io/learn-go-with-tests/)
+ * [GO by examples](https://gobyexample.com/)
 
 
 Good to know
@@ -86,16 +94,16 @@ package main
 import "fmt"
 
 func main() {
-  var arr1 [7]string
+	var arr1 [7]string
 
-  arr1[0] = "go"
-  arr1[2] = "is"
-  arr1[4] = "the"
-  arr1[6] = "best"
+	arr1[0] = "go"
+	arr1[2] = "is"
+	arr1[4] = "the"
+	arr1[6] = "best"
 
-  for id, word := range arr1 {
-    fmt.Println(id, " - ", word)
-  }
+	for id, word := range arr1 {
+		fmt.Println(id, " - ", word)
+	}
 
 }
 ```
@@ -162,11 +170,12 @@ func (usr User) hi() {
 	fmt.Println("Hi ", usr.Name)
 }
 
-// if I need to change data in the struct I must use pointer!!!
+// if I need to change data in the struct by the method I must use pointer!!!
 func (usr *User) chpwd(pass string) {
   usr.Password = pass
 }
 
+// another method example
 func (usr User) auth(pass string) bool {
 	if usr.Password == pass {
 		return true
@@ -233,6 +242,7 @@ func main() {
 	fmt.Println("Give me your age")
 	fmt.Scanln(&age)
 
+	// switch syntax
 	switch {
 	case age < 10:
 		fmt.Println("You are children")
@@ -240,6 +250,8 @@ func main() {
 		fmt.Println("You are adolescent")
 	case 18 < age:
 		fmt.Println("You are adult")
+	default:
+		fmt.Println("Have you born already?")
 	}
 
 }
