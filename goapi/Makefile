@@ -8,11 +8,11 @@ help:
 
 
 docker:
-	env GOOS=linux GOARCH=amd64 go build -o webapi-linux webapi.go
+	env GOOS=linux GOARCH=amd64 go build -o goapi-linux goapi.go
 	docker build -t webapi:${VERSION} .
 
 build:
-	go build -o webapi-darwin  webapi.go 
+	go build -o goapi-darwin goapi.go 
 
 build_linux:
-	env GOOS=linux GOARCH=amd64 go build -o webapi-linux webapi.go
+	env GOOS=linux GOARCH=amd64 go build -o goapi-linux goapi.go
