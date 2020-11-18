@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: cd goapi; make docker
     - name: Publish as msirovy/goapi
-      uses: docker/build-push-action@v1
+      uses: docker/build-push-action@v2
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
