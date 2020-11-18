@@ -22,7 +22,7 @@ func serveFile(w http.ResponseWriter, r *http.Request) {
 	log.Println(" Requested url ", r.URL.Path)
 
 	// try to find file localy
-	fc, err := ioutil.ReadFile(r.URL.Path[1:])
+	fc, err := ioutil.ReadFile("./public/" + r.URL.Path[1:])
 
 	if err == nil {
 		// if requested file has been found, return hic content
