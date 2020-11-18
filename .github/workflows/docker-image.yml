@@ -15,4 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file goapi/Dockerfile --tag msirovy/goapi:$(cat goapi/VERSION)
+      run: cd goapi; make docker
+    - name: Publish as msirovy/goapi
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: msirovy/goapi
+        tag_with_ref: true
